@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "588572568856",
+    "project_id": "wishlist-flutter-45ded",
+    "storage_bucket": "wishlist-flutter-45ded.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588572568856:android:9084d9ff148e84fc78426d",
+        "android_client_info": {
+          "package_name": "com.unlucky_knight.flutter_app_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7yiPBYDjW3S2nOtMD2iwdEE0ihxS-uho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

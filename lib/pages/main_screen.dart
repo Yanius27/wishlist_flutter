@@ -30,34 +30,25 @@ class MainScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Список подарков:', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black87),),
-            Padding(padding: EdgeInsets.only(bottom: 20)),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamedAndRemoveUntil(context, '/kate_wishes', (route) => false);
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.wallet_giftcard_sharp, color: Colors.yellow[900]),
-                  Padding(padding: EdgeInsets.only(right: 5)),
-                  SizedBox(width: 8,),
-                  Text('для Кати', style: TextStyle(fontSize: 20, color: Colors.white))
-                ],
+            Padding(
+              padding: EdgeInsets.all(30),
+              child: Text(
+                'Привет! Это приложение - удобный список, в который вы можете добавить то, что давно хотели себе купить, но никак не доходили руки. А ваши друзья и близкие смогут в него заглянуть и порадовать вас по случаю какого-нибудь праздника или просто так',
+                style: TextStyle(fontSize: 14, fontFamily: 'Gantari', color: Colors.white),
+                textAlign: TextAlign.center,
               ),
             ),
-            Padding(padding: EdgeInsets.only(bottom: 10)),
             InkWell(
               onTap: () {
-                Navigator.pushNamedAndRemoveUntil(context, '/yan_wishes', (route) => false);
+                Navigator.pushNamedAndRemoveUntil(context, '/wishes', (route) => false);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.wallet_giftcard_sharp, color: Colors.yellow[900]),
+                  Icon(Icons.arrow_circle_right_rounded, color: Colors.yellow[900]),
                   Padding(padding: EdgeInsets.only(right: 5)),
                   SizedBox(width: 8,),
-                  Text('для Яна', style: TextStyle(fontSize: 20, color: Colors.white))
+                  Text('К списку желаний', style: TextStyle(fontSize: 20, color: Colors.white))
                 ],
               ),
             ),

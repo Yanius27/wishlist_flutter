@@ -25,15 +25,9 @@ class AppMenu extends StatelessWidget {
                ),
               _menuItem(
                 context,
-                route: '/kate_wishes',
+                route: '/wishes',
                 icon: Icons.wallet_giftcard_outlined,
-                text: 'Подарки для Кати'
-              ),
-              _menuItem(
-                context,
-                route: '/yan_wishes',
-                icon: Icons.wallet_giftcard_outlined,
-                text: 'Подарки для Яна'
+                text: 'Список желаний'
               ),
               _menuItem(
                 context,

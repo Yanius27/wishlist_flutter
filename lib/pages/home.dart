@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wish_list/pages/app_menu.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Home extends StatefulWidget {
-  final String name;
-  final List<String> wishes;
-
-  const Home({super.key, required this.name, required this.wishes});
+  const Home({super.key,});
 
   @override
   State<Home> createState() => _HomeState();
@@ -13,13 +11,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   String _userInput = "";
-  List wishList = [];
   
   @override
   void initState() {
     super.initState();
-    
-    wishList.addAll(widget.wishes);
   }
 
   void _menuOpen() {
@@ -34,7 +29,6 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.blue[900],
       appBar: AppBar(
-        title: Text('${widget.name}: желания'),
         centerTitle: true,
         backgroundColor: Colors.yellow[900],
         foregroundColor: Colors.white,
@@ -50,34 +44,39 @@ class _HomeState extends State<Home> {
             icon: Icon(Icons.menu_outlined))
         ],
       ),
-      body: ListView.builder(
-        itemCount: wishList.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Dismissible(
-            key: Key(wishList[index]),
-            child: Card(
-              child: ListTile(
-                title: Text(wishList[index]),
-                trailing: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      wishList.removeAt(index);
-                    });
+      body: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('wishes').snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData) return Text('Нет записей');
+
+          return ListView.builder(
+              itemCount: snapshot.data!.docs.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Dismissible(
+                  key: Key(snapshot.data!.docs[index].id),
+                  child: Card(
+                    child: ListTile(
+                      title: Text(snapshot.data!.docs[index].get('title')),
+                      trailing: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            FirebaseFirestore.instance.collection('wishes').doc(snapshot.data!.docs[index].id).delete();
+                          });
+                        },
+                        icon: Icon(
+                          Icons.delete_sweep,
+                          color: Colors.yellow[900],
+                        )
+                      ),
+                    ),
+                  ),
+                  onDismissed: (direction) {
+                    FirebaseFirestore.instance.collection('wishes').doc(snapshot.data!.docs[index].id).delete();
                   },
-                  icon: Icon(
-                    Icons.delete_sweep,
-                    color: Colors.yellow[900],
-                  )
-                ),
-              ),
-            ),
-            onDismissed: (direction) {
-              setState(() {
-                wishList.removeAt(index);
-              });
-            },
-          );
-        },
+                );
+              },
+            );
+        }
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -92,9 +91,7 @@ class _HomeState extends State<Home> {
               actions: [
                 ElevatedButton(
                   onPressed: () {
-                    setState(() {
-                      wishList.add(_userInput);
-                    });
+                    FirebaseFirestore.instance.collection('wishes').add({'title': _userInput});
 
                     Navigator.of(context).pop();
                   },

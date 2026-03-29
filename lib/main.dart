@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'pages/home.dart';
 import 'pages/main_screen.dart';
 import 'pages/about.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(MaterialApp(
     theme: ThemeData(
       primaryColor: Colors.deepOrangeAccent
@@ -11,8 +15,7 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => MainScreen(),
-      '/kate_wishes': (context) => Home(name: 'Катя', wishes: ['Dress', 'Parfum', 'Ring'],),
-      '/yan_wishes': (context) => Home(name: 'Ян', wishes: ['Nintendo switch', 'Book', 'Puppy']),
+      '/wishes': (context) => Home(),
       '/about': (context) => About(),
     },
   ));
