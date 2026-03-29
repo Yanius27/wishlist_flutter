@@ -22,7 +22,7 @@
 ## 🌐 Демо (GitHub Pages)
 
 Приложение автоматически деплоится в Web при каждом пуше в ветку `main`.
-Посмотреть можно здесь: **[https://Yanius27.github.io/flutter_wish_list/](https://Yanius27.github.io/flutter_wish_list/)**
+Посмотреть можно здесь: **[https://Yanius27.github.io/wishlist_flutter/](https://Yanius27.github.io/wishlist_flutter/)**
 
 ## 🛠 Технологии
 - Flutter / Dart
