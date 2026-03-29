@@ -1,17 +1,30 @@
-# flutter_app_2
+# Wishlist Flutter
 
-A new Flutter project.
+Приложение для составления списков желаний, созданное на Flutter.
 
-## Getting Started
+## 🚀 Как запустить проект локально
 
-This project is a starting point for a Flutter application.
+1.  **Установите Flutter**, если он еще не установлен ([инструкция](https://docs.flutter.dev/get-started/install)).
+2.  **Клонируйте репозиторий**:
+    ```bash
+    git clone https://github.com/Yanius27/wishlist_flutter.git
+    cd wishlist_flutter
+    ```
+3.  **Установите зависимости**:
+    ```bash
+    flutter pub get
+    ```
+4.  **Запустите проект**:
+    ```bash
+    flutter run
+    ```
 
-A few resources to get you started if this is your first Flutter project:
+## 🌐 Демо (GitHub Pages)
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+Приложение автоматически деплоится в Web при каждом пуше в ветку `main`.
+Посмотреть можно здесь: **[https://Yanius27.github.io/flutter_wish_list/](https://Yanius27.github.io/flutter_wish_list/)**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠 Технологии
+- Flutter / Dart
+- Firebase (Cloud Firestore)
+- GitHub Actions (CI/CD)
