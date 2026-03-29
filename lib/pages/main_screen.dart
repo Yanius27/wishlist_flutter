@@ -31,7 +31,7 @@ class MainScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 300), // Ограничиваем ширину до 300px
+              constraints: const BoxConstraints(maxWidth: 400), // Ограничиваем ширину до 400px
               child: Padding(
                 padding: const EdgeInsets.all(30),
                 child: Text(
