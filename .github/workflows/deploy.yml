@@ -12,12 +12,14 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: subosito/flutter-action@v2
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
-          flutter-version: '3.11.1' # Из вашего pubspec.yaml
+          channel: 'stable' # Используем последнюю стабильную версию
+          cache: true
 
       - name: Install dependencies
         run: flutter pub get
@@ -30,3 +32,4 @@ jobs:
         with:
           folder: build/web
           branch: gh-pages
+          clean: true
