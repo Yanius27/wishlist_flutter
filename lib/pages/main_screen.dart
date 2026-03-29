@@ -30,12 +30,15 @@ class MainScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: EdgeInsets.all(30),
-              child: Text(
-                'Привет! Это приложение - удобный список, в который вы можете добавить то, что давно хотели себе купить, но никак не доходили руки. А ваши друзья и близкие смогут в него заглянуть и порадовать вас по случаю какого-нибудь праздника или просто так',
-                style: TextStyle(fontSize: 14, fontFamily: 'Gantari', color: Colors.white),
-                textAlign: TextAlign.center,
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 300), // Ограничиваем ширину до 300px
+              child: Padding(
+                padding: const EdgeInsets.all(30),
+                child: Text(
+                  'Привет! Это приложение - удобный список, в который вы можете добавить то, что давно хотели себе купить, но никак не доходили руки. А ваши друзья и близкие смогут в него заглянуть и порадовать вас по случаю какого-нибудь праздника или просто так',
+                  style: const TextStyle(fontSize: 14, fontFamily: 'Gantari', color: Colors.white),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
             InkWell(
